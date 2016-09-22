@@ -1,4 +1,4 @@
-angular.module("crowned", [ "ui.router" ]), angular.module("crowned").config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+angular.module("crowned", [ "ui.router" ]), angular.module("crowned").config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state("main", {
         url: "/main",
         views: {
@@ -15,8 +15,5 @@ angular.module("crowned", [ "ui.router" ]), angular.module("crowned").config(fun
     }).state("main.front", {
         url: "/front",
         templateUrl: "views/banner/banner.html"
-    }), $urlRouterProvider.otherwise("/main/front"), $locationProvider.html5Mode({
-        enabled: !0,
-        requireBase: !1
-    });
+    }), $urlRouterProvider.otherwise("/main/front");
 });
