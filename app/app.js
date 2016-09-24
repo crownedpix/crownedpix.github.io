@@ -14,6 +14,30 @@ angular.module("crowned", [ "ui.router" ]), angular.module("crowned").config(fun
         }
     }).state("main.front", {
         url: "/front",
-        templateUrl: "views/banner/banner.html"
+        templateUrl: "views/banner/banner.html",
+        controller: "frontpageController"
     }), $urlRouterProvider.otherwise("/main/front");
+}), angular.module("crowned").controller("frontpageController", function($scope, $http, $rootScope) {
+    $scope.sendMail = function(contact) {
+        $http({
+            method: "POST",
+            url: "https://api.sendgrid.com/api/mail.send.json",
+            data: $.param({
+                api_user: "crownedpix",
+                api_key: "5thDecember",
+                to: "devecha.abid@gmail.com",
+                toname: "Crownedpix Admin",
+                subject: "Crownedpix - Website Feedback Email",
+                html: $scope.contact.message + "<p>Phone number:" + $scope.contact.phone + "</p>",
+                from: $scope.contact.email
+            }),
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            }
+        }).success(function(data, status) {
+            console.log(data);
+        }).error(function(data, status) {
+            console.log("Error " + data);
+        });
+    };
 });
