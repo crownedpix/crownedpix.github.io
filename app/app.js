@@ -16,6 +16,9 @@ angular.module("crowned", [ "ui.router" ]), angular.module("crowned").config(fun
         url: "/front",
         templateUrl: "views/banner/banner.html",
         controller: "frontpageController"
+    }).state("main.about", {
+        url: "/about",
+        templateUrl: "views/about/about.html"
     }), $urlRouterProvider.otherwise("/main/front");
 }), angular.module("crowned").controller("frontpageController", function($scope, $http, $rootScope) {
     $scope.sendMail = function(contact) {
