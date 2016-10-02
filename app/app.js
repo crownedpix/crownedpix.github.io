@@ -21,7 +21,7 @@ angular.module("crowned", [ "ui.router" ]), angular.module("crowned").config(fun
         templateUrl: "views/about/about.html"
     }), $urlRouterProvider.otherwise("/main/front");
 }), angular.module("crowned").controller("frontpageController", function($scope, $http, $rootScope) {
-    $scope.sendMail = function(contact) {
+    $scope.mailStatus = !0, $scope.status = "", $scope.sendMail = function(contact) {
         $http({
             method: "POST",
             url: "https://api.sendgrid.com/api/mail.send.json",
@@ -38,7 +38,8 @@ angular.module("crowned", [ "ui.router" ]), angular.module("crowned").config(fun
                 "Content-Type": "application/x-www-form-urlencoded"
             }
         }).success(function(data, status) {
-            console.log(data);
+            console.log(data), $scope.mailStatus = !1, $scope.status = "Mail sent Successfully", 
+            $scope.contact = [];
         }).error(function(data, status) {
             console.log("Error " + data);
         });
