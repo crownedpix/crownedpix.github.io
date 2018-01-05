@@ -358,6 +358,18 @@
     position: relative;
     z-index: 100;
     padding-top: 100px;
+    position: relative;
+}
+
+.excerciseBoard:after {
+    content: '';
+    display: block;
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    background: url('../images/dottedFooter.png') center center no-repeat;
+    background-size: 100% 50px;
 }
 
 .excerciseBoard .properImage {
@@ -480,6 +492,20 @@
     margin-bottom: 30px;
 }
 
+.videoSim .videoBlock {
+    background-color: #e8e8e8;
+    padding: 28px 0px;
+}
+
+.videoScroll .scrollItem+.scrollItem {
+    margin-top: 17px;
+}
+
+.viewVideo img {
+    width: 91%;
+    margin-left: 23px;
+}
+
 
 /* whole body Vibration */
 
@@ -575,6 +601,7 @@ wholebodyVibration .btn-primary.focus,
 
 .wholebodyVibration img {
     max-width: 100%;
+    margin-bottom: 25px;
 }
 
 
