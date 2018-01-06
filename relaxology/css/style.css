@@ -613,7 +613,7 @@ wholebodyVibration .btn-primary.focus,
 
 .footer .footerBg:before {
     content: '';
-    background: url(../images/footerBanner.png) no-repeat top center;
+    background: url(../images/footerbanner.png) no-repeat top center;
     background-size: 100% 187px;
     height: 187px;
     display: block;
