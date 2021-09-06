@@ -287,8 +287,9 @@ testiSlider();
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
-  
+    if(slides)
     slides[slideIndex-1].style.display = "block";
+    if(dots)
     dots[slideIndex-1].className += " active";  
   }
   //custom script end for game trailer slider
